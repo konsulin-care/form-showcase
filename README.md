@@ -15,9 +15,6 @@ This repository is a showcase of statically-rendered FHIR questionnaire using [L
 1. Set up a standalone FHIR server using [Blaze](https://github.com/samply/blaze) on port `8082`
    ```bash
    docker run --name blaze -p 8082:8080 samply/blaze
-   
-   curl localhost:8082/fhir/metadata | jq ".software"
-   curl localhost:8082/fhir/QuestionnaireResponse | jq ".total"
    ```
 1. Check that the FHIR server is running properly
    ```bash
@@ -33,6 +30,6 @@ This repository is a showcase of statically-rendered FHIR questionnaire using [L
    ```
 1. Visit served web at `http://localhost:8081` and submit a form
 1. Now, it should populate the `QuestionnaireResponse` in the FHIR server
-   ```
+   ```bash
    curl localhost:8082/fhir/QuestionnaireResponse | jq ".total"
    ```
