@@ -1,0 +1,13 @@
+# Ignore everything
+*
+
+# Whitelist directory contents
+!*/**
+
+# Whitelist specific file format
+!*html
+!*css
+!*js
+!*json
+!*md
+!*ignore
