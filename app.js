@@ -1,8 +1,10 @@
 // Generate FHIR questionnaires
-fetch("forms/medication-v1.0.0.json")
-  .then(res => res.json())
-  .then(data => LForms.Util.addFormToPage(data, "medication"))
 
-fetch("forms/phq-9-v1.0.0.json")
-  .then(res => res.json())
-  .then(data => LForms.Util.addFormToPage(data, "phq"))
+function renderForm(qpath, qname) {
+  fetch(qpath)
+    .then(res => res.json())
+    .then(data => LForms.Util.addFormToPage(data, qname))
+}
+
+renderForm("forms/medication-v1.0.0.json", "medication")
+renderForm("forms/phq-9-v1.0.0.json",      "phq")
