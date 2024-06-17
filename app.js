@@ -6,5 +6,4 @@ function renderForm(qpath, qname) {
     .then(data => LForms.Util.addFormToPage(data, qname))
 }
 
-renderForm("forms/medication-v1.0.0.json", "medication")
-renderForm("forms/phq-9-v1.0.0.json",      "phq")
+renderForm("forms/bit-of-everything.json", "assessment")

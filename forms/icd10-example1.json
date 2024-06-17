@@ -1,0 +1,35 @@
+{
+  "resourceType": "Questionnaire",
+  "id": "icd10-example-1",
+  "status": "draft",
+  "title": "ICD-10 example",
+  "subjectType": [
+    "Practitioner"
+  ],
+  "item": [
+    {
+      "linkId": "complaint",
+      "text": "Complaint",
+      "type": "open-choice",
+      "repeats": true,
+      "answerValueSet": "https://clinicaltables.nlm.nih.gov/fhir/R4/ValueSet/icd10cm",
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-preferredTerminologyServer",
+          "valueUrl": "https://clinicaltables.nlm.nih.gov/fhir/R4"
+        },
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/questionnaire-item-control",
+                "code": "autocomplete"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
