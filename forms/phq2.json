@@ -1,0 +1,160 @@
+{
+  "code": [
+    {
+      "code": "55757-9",
+      "display": "Patient Health Questionnaire 2 item (PHQ-2) [Reported]",
+      "system": "http://loinc.org"
+    }
+  ],
+  "title": "Patient Health Questionnaire 2 item (PHQ-2) [Reported]",
+  "resourceType": "Questionnaire",
+  "status": "draft",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/4.0/StructureDefinition/Questionnaire"
+    ]
+  },
+  "item": [
+    {
+      "type": "choice",
+      "code": [
+        {
+          "code": "44250-9",
+          "display": "Little interest or pleasure in doing things",
+          "system": "http://loinc.org"
+        }
+      ],
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/questionnaire-item-control",
+                "code": "radio-button"
+              }
+            ],
+            "text": "Drop down"
+          }
+        }
+      ],
+      "linkId": "question-1",
+      "text": "Little interest or pleasure in doing things",
+      "answerOption": [
+        {
+          "valueCoding": {
+            "code": "0",
+            "display": "Not at all"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "1",
+            "display": "Several days"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "2",
+            "display": "More than half the days"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "3",
+            "display": "Nearly every day"
+          }
+        }
+      ]
+    },
+    {
+      "type": "choice",
+      "code": [
+        {
+          "code": "44255-8",
+          "display": "Feeling down, depressed, or hopeless",
+          "system": "http://loinc.org"
+        }
+      ],
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/questionnaire-item-control",
+                "code": "radio-button"
+              }
+            ],
+            "text": "Drop down"
+          }
+        }
+      ],
+      "linkId": "question-2",
+      "text": "Feeling down, depressed, or hopeless",
+      "answerOption": [
+        {
+          "valueCoding": {
+            "code": "0",
+            "display": "Not at all"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "1",
+            "display": "Several days"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "2",
+            "display": "More than half the days"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "3",
+            "display": "Nearly every day"
+          }
+        }
+      ]
+    },
+    {
+      "type": "decimal",
+      "code": [
+        {
+          "code": "55758-7",
+          "display": "Patient health questionnaire 2 item total score",
+          "system": "http://loinc.org"
+        }
+      ],
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/variable",
+          "valueExpression": {
+            "name": "answer1",
+            "language": "text/fhirpath",
+            "expression": "%resource.item.where(linkId='question-1').answer.valueCoding.code.toDecimal()"
+          }
+        },
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/variable",
+          "valueExpression": {
+            "name": "answer2",
+            "language": "text/fhirpath",
+            "expression": "%resource.item.where(linkId='question-2').answer.valueCoding.code.toDecimal()"
+          }
+        },
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
+          "valueExpression": {
+            "language": "text/fhirpath",
+            "expression": "%answer1 + %answer2"
+          }
+        }
+      ],
+      "linkId": "score",
+      "text": "Patient health questionnaire 2 item total score"
+    }
+  ]
+}

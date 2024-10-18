@@ -1,0 +1,97 @@
+{
+  "resourceType": "Questionnaire",
+  "id": "grid-table",
+  "status": "draft",
+  "title": "Grid Table",
+  "subjectType": [
+    "Patient",
+    "Person",
+    "Practitioner"
+  ],
+  "item": [
+    {
+      "linkId": "question-table",
+      "text": "A table with questions in its rows and choices in its columns",
+      "type": "group",
+      "item": [
+        {
+          "linkId": "question-1",
+          "type": "choice",
+          "text": "What is it?",
+          "answerOption": [
+            {
+              "valueCoding": {
+                "code": "0",
+                "display": "This"
+              }
+            },
+            {
+              "valueCoding": {
+                "code": "1",
+                "display": "That"
+              }
+            }
+          ],
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/questionnaire-item-control",
+                    "code": "radio-button"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "linkId": "question-2",
+          "type": "choice",
+          "text": "What is it again?",
+          "answerOption": [
+            {
+              "valueCoding": {
+                "code": "0",
+                "display": "This"
+              }
+            },
+            {
+              "valueCoding": {
+                "code": "1",
+                "display": "That"
+              }
+            }
+          ],
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/questionnaire-item-control",
+                    "code": "radio-button"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/questionnaire-item-control",
+                "code": "table"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
